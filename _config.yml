@@ -1,8 +1,8 @@
 # Site settings 配置站点
 title: 'xMinh'
-description: 'Begin Again'
+description: '在这里重新开始'
 keyword: 'xMinh,Begin Again'
-url: 'http://styz.com' # your host
+url: 'http://www.xminh.com' # your host
 
 # if you don't need baseurl, you should leave this value blank.
 baseurl: ''
@@ -40,9 +40,6 @@ postPatterns: 'circuitBoard'
 
 # SNS settings 配置社交网站url: weibo, zhihu, twitter, instagram, juejin, github, douban, facebook, dribble, uicn, jianshu, medium, linkedin
 sns:
-  weibo: ''
-  juejin: ''
-  instagram: ''
   github: 'https://github.com/xMinh'
 
 # Tags 设置标签
