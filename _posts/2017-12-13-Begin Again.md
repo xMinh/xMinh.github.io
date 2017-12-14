@@ -4,7 +4,7 @@ title: 'Begin Again'
 subtitle: '在这里重新开始吧'
 date: 2017-12-13
 categories: OI
-cover: 'http://file03.16sucai.com/2016/10/1100/16sucai_p20161021116_248.JPG'
+cover: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1513842809&di=901cb84b935b9bf623c7c135202a5391&imgtype=jpg&er=1&src=http%3A%2F%2Fbcs.91.com%2Frbpiczy%2FWallpaper%2F2014%2F11%2F18%2F71282b1c54fb4ca0ba07325a115a762d-7.jpg'
 tags: OI
 ---
 终于搭建完博客了，挺累但是舒坦。    
