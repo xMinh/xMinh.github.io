@@ -1,0 +1,279 @@
+---
+layout: post
+title: 'NOIP2017 普及组 解题报告'
+subtitle: '本蒻连普及组的题都不会……怕是药丸……'
+date: 2017-12-17
+categories: OI
+cover: 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=721781843,4013773510&fm=27&gp=0.jpg'
+tags: 模拟赛
+---
+# NOIP2017 普及组 解题报告
+发现自己空有提高组之名没有提高组之实……    
+怕是要被普及组dalao们吊着打    
+### [T1 成绩](https://www.luogu.org/problemnew/show/P3954)
+这题的存在大概就是为了检测有没有幼儿园大班的人混进来……    
+我都不忍心贴代码……    
+### [T2 图书管理员](https://www.luogu.org/problemnew/show/P3955)
+又是一道水题……但是我貌似在pow函数里面用了两个int类型的数结果被loli的老爷机卡掉了……我也是醉了
+```cpp
+#include<iostream>
+#include<cstdio>
+#include<cstring>
+#include<cmath>
+#define rint register int
+#define inv inline void
+#define big 1e9
+using namespace std;
+int n,q,a[1001];
+int main()
+{
+    scanf("%d%d",&n,&q);
+    for (rint i=1;i<=n;i++)
+        scanf("%d",&a[i]);
+    for (rint i=1;i<=q;i++)
+    {
+        int m,w,ans=big;
+        scanf("%d%d",&m,&w);
+        m=int(pow(double(10),double(m)));
+        for (rint j=1;j<=n;j++)
+            if (a[j]>=w && a[j]%m==w)
+                ans=min(ans,a[j]);
+        if (ans<big) printf("%d\n",ans);
+        else printf("-1\n"); 
+    }
+}
+```
+### [T3 棋盘](https://www.luogu.org/problemnew/show/P3956)
+一道神奇的题目，可以用dfs,bfs,dp好几种方法做，目测绿题以上蓝题以下     
+结果发现这道题是个黄题？？这年头记忆化搜索都被称作黄题了，看来我是真的菜    
+第一遍只得到75分——犯了一个极其ZZ的错误。    
+因为dfs这个东西实在是看脸（当时没去想记忆化这回事），干想了一个小时认定这题是bfs建边+spfa跑最短路……但是这样建边后效性太强，因为每条边都有一个固定的来源，也就是这条边的出发点的父亲是谁决定了这条边的长度，而先建边再跑最短路就会把好几条不同的路混淆。    
+上一下错误代码
+```cpp
+#include<iostream>
+#include<cstdio>
+#include<cstring>
+#include<cmath>
+#include<queue>
+#define rint register int
+#define inv inline void
+#define big 1e9
+using namespace std;
+int cnt,m,n,dis[100001],a[100001],b[101][101],hed[100001],dx[5]={0,1,-1,0,0},dy[5]={0,0,0,1,-1},team[10000001][5];
+bool vis[100001][5],use[100001],hh[101][101];
+queue<int> q;
+struct node
+{
+    int next,to,dis;
+}ljb[100001];
+inv add(int x,int y,int z)
+{
+    ljb[++cnt].next=hed[x];
+    ljb[cnt].to=y;
+    ljb[cnt].dis=z;
+    hed[x]=cnt;
+}
+inv bfs()
+{
+    int head=0,tail=1;
+    team[1][1]=1;team[1][2]=1;
+    while (head<tail)
+    {
+        int x=team[++head][1],y=team[head][2],bj=team[head][3],fa=team[head][4];
+        hh[x][y]=1;
+        for (rint i=1;i<=4;i++)
+        {
+            int xx=x+dx[i],yy=y+dy[i];
+            int t1=b[x][y],t2=b[xx][yy];
+            if (xx>=1 && xx<=m && yy>=1 && yy<=m && t2!=fa && !vis[t1][i])
+            {
+                int flag=0;
+                if (!bj)
+                {
+                    flag=1;
+                    if (a[t2]==0)
+                    {
+                        add(t1,t2,2);
+                        flag=2;
+                    }
+                    else
+                    {
+                        if (a[t1]==a[t2])
+                            add(t1,t2,0);
+                        else add(t1,t2,1);
+                    }
+                }
+                if (bj)
+                {
+                    if (a[t2])
+                    {
+                        if (a[t2]==a[fa]) add(t1,t2,0);
+                        else add(t1,t2,1);
+                        flag=1;
+                    }
+                }
+                if (flag)
+                {
+                    vis[t1][i]=1;
+                    team[++tail][1]=xx;
+                    team[tail][2]=yy;
+                    if (flag==2) team[tail][3]=1;
+                    team[tail][4]=t1;
+                }
+            }
+        }
+    }
+}
+inv spfa()
+{
+    for (rint i=1;i<=m*m;i++) dis[i]=big;
+    for (rint i=1;i<=m*m;i++) use[i]=0;
+    dis[1]=0;use[1]=1;q.push(1);
+    while (!q.empty())
+    {
+        int x=q.front();q.pop();use[x]=0;
+        for (rint i=hed[x];i;i=ljb[i].next)
+        {
+            int y=ljb[i].to;
+            if (dis[y]>dis[x]+ljb[i].dis)
+            {
+                dis[y]=dis[x]+ljb[i].dis;
+                if (!use[y])
+                {
+                    use[y]=1;
+                    q.push(y);
+                }
+            }	
+        } 
+    }
+}
+int main()
+{
+    scanf("%d%d",&m,&n);
+    for (rint i=1;i<=m;i++)
+        for (rint j=1;j<=m;j++)
+            b[i][j]=(i-1)*m+j; 
+    for (rint i=1;i<=n;i++)
+    {
+        int x,y,z=2;
+        scanf("%d%d%d",&x,&y,&z);
+        a[b[x][y]]=z+1;
+    }
+    //0为无色，1为红色，2为黄色 
+    bfs();
+    if (!hh[m][m])
+    {
+        cout<<-1;
+        return 0;
+    }
+    spfa();
+    cout<<dis[b[m][m]];
+}
+```
+赛后看题解看到了记忆化搜索的做法……代码简短而且通俗易懂    
+剪枝可证，用f[x][y]保存从(1,1)到(x,y)的最短路，如果当前走到(x,y)的路大于等于f[x][y]就直接退出就行了，因为最坏的情况就是(x,y)是一个空白格，而把它改成不同的颜色会使最短路长度不同，但就算会影响，差值也至多是1，而sum>f[x][y]，差值至少是1。所以直接可以这样剪。
+注意：一定是要是大于等于！因为这种做法不能去判断是否已经走过——走过的不一定是最优解。所以如果等于的时候不退的话就会来回走……
+以下是AC代码
+```cpp
+#include<iostream>
+#include<cstdio>
+#include<cstring>
+#define rint register int
+#define inv inline void
+#define big 1e9
+using namespace std;
+int f[101][101],a[101][101],dx[5]={0,-1,0,1,0},dy[5]={0,0,-1,0,1};
+int m,n,ans;
+inv dfs(int x,int y,int sum,bool bj) 
+{
+    if (x<1 || x>m || y<1 || y>m || sum>=f[x][y]) return;
+    f[x][y]=sum;
+    if(x==m && y==m) 
+    {
+        if(sum<ans) ans=sum;
+        return;
+    }
+    for(rint i=1;i<=4;i++) 
+    {
+        int xx=x+dx[i],yy=y+dy[i];
+        if(a[xx][yy]) 
+        {
+            if(a[xx][yy]==a[x][y]) dfs(xx,yy,sum,0);
+            else dfs(xx,yy,sum+1,0);
+        } 
+        else if(!a[xx][yy] && !bj)
+        {
+            a[xx][yy]=a[x][y];
+            dfs(xx,yy,sum+2,1);
+            a[xx][yy]=0;
+        }
+    }
+}
+int main() 
+{
+    scanf("%d%d",&m,&n);
+    for(rint i=1;i<=n;i++) 
+    {
+        int x,y,z;
+        scanf("%d%d%d",&x,&y,&z);
+        a[x][y]=z+1;
+    }
+    memset(f,127,sizeof(f));
+    ans=big;
+    dfs(1,1,0,0);
+    if(ans>=big) printf("-1");
+    else printf("%d",ans);
+}
+```
+### [T4 跳房子](https://www.luogu.org/problemnew/show/3957)
+这题第一遍看错题了，一分没得……    
+如果看对了题的话拿到50分的DP分应该不难，但是这题数据毒瘤，必须要用单调队列优化才能AC。之后写单调队列又莫名写炸，和网上的dalao们好像都不是一个写法……贴一个网上dalao的做法。
+```cpp
+#include<iostream>
+#include<cstdio>
+#include<cstring>
+#define rint register int
+#define inb inline bool
+#define big 1e9
+using namespace std;
+int n,d,k,x[500001],s[500001],q[500001],f[500001];
+inb check(int g)
+{
+	for (rint i=1;i<=n;i++) f[i]=-big;
+	memset(q,0,sizeof(q));
+	int head=1,tail=0,xmin=max(d-g,1),xmax=d+g,j=0;
+	for (rint i=1;i<=n;i++)
+	{
+		while (j<i && x[i]-x[j]>=xmin)
+		{ 
+			while (head<=tail && f[q[tail]]<f[j]) tail--;
+			q[++tail]=j;j++;
+		}//把有可能跳到当前点的格子入队
+		while (head<=tail && x[q[head]]+xmax<x[i]) head++;//把过期的出队
+		if (head>tail || f[q[head]]==-big) continue;
+		//如果队空或者队里全是达不到的点就说明当前点达不到
+		else f[i]=f[q[head]]+s[i];
+		if (f[i]>=k) return 1;
+	}
+	return 0;
+}
+int main()
+{
+	scanf("%d%d%d",&n,&d,&k);
+	for (rint i=1;i<=n;i++)
+		scanf("%d%d",&x[i],&s[i]);
+		
+	int l=0,r=x[n],ans=-1;
+	while (l<=r)
+	{
+		int mid=(l+r)/2;
+		if (check(mid))
+		{
+			r=mid-1;
+			ans=mid;
+		}
+		else l=mid+1;
+	}
+	printf("%d",ans);
+} 
+```
