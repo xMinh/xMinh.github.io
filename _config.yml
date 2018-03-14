@@ -1,8 +1,15 @@
 # Site settings 配置站点
+<<<<<<< HEAD
 title: '廖柯宇的独立博客'
 description: '昵称悟空，千禧一代，前端开发者/伪极客/灵魂摄影师，热爱技术&设计。很高兴能在这里与你分享我对技术和生活的思考。'
 keyword: '廖柯宇, 廖柯宇的独立博客, 廖柯宇的博客, 前端, 前端开发, 前端博客, javascript, vuejs, nodejs, 设计'
 url: 'http://liaokeyu.com' # your host
+=======
+title: 'xMinh'
+description: '在这里重新开始'
+keyword: 'xMinh,Begin Again'
+url: 'https://xminh.github.io/' # your host
+>>>>>>> a67bd9ef034905cf724ce5f9f5024b4b5e1e9561
 
 # if you don't need baseurl, you should leave this value blank.
 baseurl: ''
@@ -71,7 +78,7 @@ sns:
 
 # Tags 设置标签
 recommend-tags: true # whether or not display recommend-tags on the sidebar
-recommend-condition-size: 12 # a tag will be recommended if the size of it is more than this value
+recommend-condition-size: 20 # a tag will be recommended if the size of it is more than this value
 
 # Build settings
 paginate: 6
