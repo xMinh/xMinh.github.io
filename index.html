@@ -1,8 +1,7 @@
 ---
 layout: default
-home-title: xMinh
-description: Begin Again
-header-img: http://file03.16sucai.com/2016/10/1100/16sucai_p20161021116_248.JPG
+home-title: H2O Theme For Jekyll
+description: 或许是最漂亮的Jekyll主题
 ---
 
 {% include header.html %}
@@ -21,12 +20,12 @@ header-img: http://file03.16sucai.com/2016/10/1100/16sucai_p20161021116_248.JPG
             <article class="article-item">
                 {% if post.cover %}
                 <div class="post-cover">
-                    <a class="post-link" href="{{ post.url }}" title="{{ post.title }}"></a>
-                    <img src="{{ post.cover }}" alt="">
+                    <a class="post-link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}"></a>
+                    <img src="{{ post.cover }}" href="{{ post.url | prepend: site.baseurl }}" alt="">
                 </div>
                 {% endif %}
                 <section class="post-preview">
-                    <a class="post-link" href="{{ post.url }}" title="{{ post.title }}"></a>
+                    <a class="post-link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}"></a>
                     <h2 class="post-title">{{ post.title }}</h2>
                     {% if post.subtitle %}
                     <h3 class="post-subtitle">{{ post.subtitle }}</h3>
