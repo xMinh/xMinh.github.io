@@ -1,15 +1,8 @@
 # Site settings 配置站点
-<<<<<<< HEAD
-title: '廖柯宇的独立博客'
-description: '昵称悟空，千禧一代，前端开发者/伪极客/灵魂摄影师，热爱技术&设计。很高兴能在这里与你分享我对技术和生活的思考。'
-keyword: '廖柯宇, 廖柯宇的独立博客, 廖柯宇的博客, 前端, 前端开发, 前端博客, javascript, vuejs, nodejs, 设计'
-url: 'http://liaokeyu.com' # your host
-=======
 title: 'xMinh'
 description: '在这里重新开始'
 keyword: 'xMinh,Begin Again'
 url: 'https://xminh.github.io/' # your host
->>>>>>> a67bd9ef034905cf724ce5f9f5024b4b5e1e9561
 
 # if you don't need baseurl, you should leave this value blank.
 baseurl: ''
@@ -24,10 +17,10 @@ footer:
   since: 2017
 
 # Author 配置博主信息
-author: '廖柯宇'
-nickname: '悟空'
-bio: '前端开发者，热爱技术&设计，简单乐观爱创造'
-avatar: '/assets/img/profile.png'
+author: 'xMinh'
+nickname: 'Glimmar'
+bio: '一枚蒟蒻'
+avatar: 'https://github.com/xMinh/xMinh.github.io/blob/master/pic/psb.jpg?raw=true'
 
 # Search
 search: true
@@ -38,17 +31,17 @@ nightMode: true
 # Comments 评论功能
 #   default_hidden：是否默认隐藏评论。若是则需要点击一按钮后才显示。 by Ray-Eldath
 comments:
-  default_hidden: true
-  disqus: false
-  disqus_url: 'https://liaokeyu.disqus.com/embed.js'
+  default_hidden: false
+  disqus: true
+  disqus_url: ''
 
   livere: true
-  livere_uid: MTAyMC8yODEwMC80Njcz
+  livere_uid: 
 
 # Reward 赞赏功能 by Ray-Eldath
 reward:
   enable: true
-  reward_comment: '真诚赞赏 手有余香'
+  reward_comment: '谢谢客官打赏'
   wechatpay: 'http://ray-eldath.image.alimmdn.com/basic/wechatpay.jpg'
   alipay: 'http://ray-eldath.image.alimmdn.com/basic/alipay.jpg'
 
@@ -70,11 +63,8 @@ postPatterns: 'circuitBoard'
 
 # SNS settings 配置社交网站url: email, weibo, zhihu, twitter, instagram, juejin, github, douban, facebook, dribble, uicn, jianshu, medium, linkedin
 sns:
-  email: 'mailto:ray.eldath@aol.com'
-  weibo: '//weibo.com/lovecolcol'
-  juejin: '//juejin.im/user/57a6f434165abd006159b4cc'
-  instagram: '//www.instagram.com/steveliaocn'
-  github: '//github.com/kaeyleo'
+  juejin: 'https://xminh.github.io/oi/2017/12/11/%E5%8F%8B%E9%93%BE.html'
+  github: 'https://github.com/xMinh/xMinh.github.io/blob/master/pic/psb.jpg?raw=true'
 
 # Tags 设置标签
 recommend-tags: true # whether or not display recommend-tags on the sidebar
