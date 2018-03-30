@@ -12,7 +12,7 @@ nav:
   home: '/'
   tags: '/tags.html'
   about me: '/about me.html'
-  link: '/link.html'
+  link: '/links.html'
 
 # Footer
 footer:
