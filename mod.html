@@ -1,0 +1,256 @@
+---
+title: Mod
+layout: default
+---
+{% include header.html %}
+
+<div class="g-banner tags-banner {{ site.postPatterns | prepend: 'post-pattern-' }} {{ site.theme-color | prepend: 'bgcolor-' }}" data-theme="{{ site.theme-color }}">
+    <h2>MOD</h2>
+</div>
+  </header>
+
+  <div class="post-content visible">
+    
+    <h2 class="post-subtitle">%%%Mod Refun大会分会%%%</h2>
+    <article class="markdown-body">
+
+</script>
+<html>
+	<head>
+		<style>
+			body {
+				text-align: center;
+				margin: 0;
+				min-width: 260px;
+			}
+			#start {
+				width: 100%;
+				height: 50px;
+				cursor: pointer;
+				font-size: 30px;
+				line-height: 50px;
+				background-color: rgb(204, 204, 204);
+				transition: background-color 0.5s;
+			}
+			#start:hover {
+				background-color: rgb(172, 172, 172);
+			}
+			#orz_title {
+				font-size: 0;
+			}
+			#orz_title span {
+				font-size: 128px;
+				transition: font-size 0.1s;
+				line-height: 180px;
+			}
+			#orz_title span:hover {
+				font-size: 180px;
+			}
+			#refun_icon {
+				z-index: 100;
+				position: absolute;
+				margin: 10px -90px;
+				left: 50%;
+				background-image: url("http://img.blog.csdn.net/20180419190559216");
+				background-size: 100%;
+				width: 180px;
+				height: 180px;
+				border-radius: 30px;
+				box-shadow: 0 0 100px red;
+				transition-property: box-shadow, height, width, margin;
+				transition-duration: 0.5s;
+				cursor: pointer;
+			}
+			#refun_icon:hover {
+				box-shadow: 0 0 200px 100px #f44;
+			}
+			#too_strong {
+				position: absolute;
+				transition-property: width, margin;
+				transition-duration: 0.5s;
+				margin: 0 -150px;
+				left: 50%;
+				margin-top: 170px;
+				width: 300px;
+				cursor: -webkit-zoom-in;
+			}
+			#too_1 {
+				z-index: 0;
+				transform: scaleX(-1);
+				float: left;
+				transition-property: width, height;
+				transition-duration: 0.5s;
+			}
+			#too_2 {
+				z-index: 0;
+				float: right;
+			}
+			#orz {
+				padding-bottom: 200px;
+				transition: padding-bottom 0.5s;
+			}
+			#orz_content {
+				color: red;
+				font-size: 56px;
+				transition: font-size 0.5s;
+			}
+			#orz_btn {
+				width: 100%;
+				height: 50px;
+				cursor: pointer;
+				font-size: 30px;
+				line-height: 50px;
+				color: red;
+				background-color: rgb(235, 189, 189);
+				transition-property: background-color height;
+				transition-duration: 0.5s;
+			}
+			#orz_btn:hover {
+				background-color: rgb(255, 148, 148);
+			}
+			.orz_succ {
+				background-color: rgb(0, 172, 23) !important;
+				color: #fff !important;
+				height: 100px !important;
+				cursor: auto !important;
+			}
+			.orz_succ p {
+				line-height: 30px;
+			}
+			#refun {
+				width: 600px;
+				opacity: 0;
+				height: 0;
+				transition-property: width, height, opacity;
+				transition-duration: 0.5s, 0.5s, 5s;
+			}
+			.refun {
+				height: auto !important;
+				opacity: 1 !important;
+				cursor: pointer;
+			}
+			@media screen and (max-width: 700px) {
+				#orz_title span {
+					font-size: 80px;
+					line-height: 95px;
+				}
+				#orz_title span:hover {
+					font-size: 95px;
+				}
+				#refun_icon {
+					width: 140px;
+					height: 140px;
+					margin: 50px -70px;
+				}
+				#too_strong {
+					width: 260px;
+					margin: 0 -130px;
+					margin-top: 160px;
+				}
+				#too_1 {
+					width: 50px;
+					height: 55px;
+				}
+				#too_2 {
+					width: 50px;
+					height: 55px;
+				}
+				#orz_content {
+					font-size: 42px;
+				}
+				#refun {
+					width: 300px;
+				}
+			}
+			@media screen and (max-width: 400px) {
+				#orz_title span {
+					font-size: 50px;
+					line-height: 60px;
+				}
+				#orz_title span:hover {
+					font-size: 60px;
+				}
+				#refun_icon {
+					width: 100px;
+					height: 100px;
+					margin: 50px -50px;
+				}
+				#too_strong {
+					width: 170px;
+					margin: 0 -85px;
+					margin-top: 130px;
+				}
+				#too_1 {
+					width: 30px;
+					height: 35px;
+				}
+				#too_2 {
+					width: 30px;
+					height: 35px;
+				}
+				#orz {
+					padding-bottom: 150px;
+				}
+				#orz_content {
+					font-size: 32px;
+				}
+				#refun {
+					width: 200px;
+				}
+			}
+		</style>
+		<script>
+			var orz_cnt = 0;
+			function start()
+			{
+				document.getElementById("start").style.display = "none";
+				document.getElementById("hide").style.display = "block";
+			}
+			function orz()
+			{
+				orz_cnt++;
+				alert("Refun 太强辣!!! ×" + String(orz_cnt));
+				if (orz_cnt > 1000)
+					alert("Refun: https://s1.ax1x.com/2018/04/22/CM6Mwj.jpg \n恭喜你激起了大佬的愤怒, 您的RP已更新为: -INF");
+				else if (orz_cnt > 100)
+					alert("Refun: 整天膜人, 是没有前途的");
+				else if (orz_cnt > 10)
+					alert("Refun: 很好, 给我膜到INF");
+			}
+			function orzorzorz()
+			{
+				var el = document.getElementById("orz_btn");
+				el.className = "orz_succ";
+				el.innerHTML = "膜拜成功!<br>Refun又变强了!";
+				document.getElementById("refun").className = "refun";
+				el.scrollIntoView(true);
+			}
+		</script>
+	</head>
+	<body>
+		<div id="start" onclick="start()">点击免费膜Refun</div>
+		<div id="hide" style="display: none">
+			<p id="orz_title">
+				<span style="color: rgb(66,133,244)">O</span>
+				<span style="color: rgb(234,67,53)">r</span>
+				<span style="color: rgb(251,188,5)">z</span>
+				<span style="color: rgb(66,133,244)">R</span>
+				<span style="color: rgb(52,168,83)">E</span>
+				<span style="color: rgb(234,67,53)">fun</span>
+			</p>
+			<!--180px * 180px-->
+			<div id="orz">
+				<div id="refun_icon" onclick="alert('点一下膜一生\norz orz orz\n')"></div>
+				<div id="too_strong" onclick="orz()">
+					<img id="too_1" src="http://img.blog.csdn.net/20180419190820052">
+					<img id="too_2" src="http://img.blog.csdn.net/20180419190820052">
+				</div>
+			</div>
+			<p id="orz_content">REfun是我们的红太阳，没有他我们会死！</p>
+			<div id="orz_btn" onclick="javascript:orzorzorz()">点击膜拜</div>
+			<img id="refun" src="http://img.blog.csdn.net/20180424093545571" onclick="alert('Refun: 我太强了')">
+		</div>
+        powered by wzh
+	</body>
+</html>
+{% include footer.html %}
